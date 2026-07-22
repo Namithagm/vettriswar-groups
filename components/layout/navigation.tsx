@@ -57,7 +57,7 @@ export default function Navigation() {
             width={140}
             height={50}
             priority
-            className="h-9 w-auto object-contain sm:h-10"
+            className="h-12 w-auto object-contain sm:h-14"
           />
         </a>
 

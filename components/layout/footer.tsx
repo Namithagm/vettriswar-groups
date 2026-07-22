@@ -54,7 +54,7 @@ export default function Footer() {
               alt={SITE.name}
               width={150}
               height={53}
-              className="h-10 w-auto object-contain"
+              className="h-14 w-auto object-contain"
             />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-paper-muted">
               {SITE.description}

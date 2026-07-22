@@ -101,7 +101,7 @@ export default function Hero() {
             width={300}
             height={106}
             priority
-            className="h-20 w-auto object-contain drop-shadow-[0_0_30px_rgba(212,175,55,0.35)] sm:h-24"
+            className="h-28 w-auto object-contain drop-shadow-[0_0_30px_rgba(212,175,55,0.35)] sm:h-32"
           />
         </motion.div>
 
