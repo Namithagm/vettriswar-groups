@@ -3,7 +3,6 @@ import About from "@/components/sections/about";
 import Services from "@/components/sections/services";
 import WhyChooseUs from "@/components/sections/why-choose-us";
 import Industries from "@/components/sections/industries";
-import Statistics from "@/components/sections/statistics";
 import Portfolio from "@/components/sections/portfolio";
 import ClientLogos from "@/components/sections/client-logos";
 import FounderSection from "@/components/sections/founder";
@@ -21,7 +20,6 @@ export default function Home() {
       <Services />
       <WhyChooseUs />
       <Industries />
-      <Statistics />
       <Portfolio />
       <ClientLogos />
       <FounderSection />
