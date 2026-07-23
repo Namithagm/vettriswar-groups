@@ -175,8 +175,8 @@ export default function Blog() {
             <Reveal key={post.id} delay={(i % 4) * 0.08}>
               <article className="glass-card glass-card-hover group flex h-full flex-col overflow-hidden">
                 <div className="relative flex h-36 items-center justify-center bg-gradient-to-br from-ink-raised to-ink-soft">
-                  <span className="font-display text-lg text-gold/25">
-                    {post.category}
+                  <span className="font-display text-lg text-gold/70">
+                  {post.category}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
