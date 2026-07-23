@@ -42,7 +42,7 @@ const SERVICES = [
     icon: Workflow,
     title: "WordPress Development",
     description:
-      "End-to-end workflow automation that removes manual bottlenecks and keeps teams focused on higher-value work.",
+      "Custom WordPress websites and themes built for performance, easy content management, and growth.",
   },
   {
     icon: Users,
