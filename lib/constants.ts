@@ -40,11 +40,11 @@ export const SITE = {
   },
 
   hours: {
-    weekdays: "Monday – Saturday: 9:00 AM – 6:00 PM",
-    sunday: "Sunday: Closed",
-    // schema.org openingHours format, used in the Organization JSON-LD.
-    schema: ["Mo-Fr 09:00-18:00", "Sa 09:00-14:00"],
-  },
+  weekdays: "Monday – Friday: 9:00 AM – 6:00 PM",
+  saturday: "Saturday: 9:00 AM – 2:00 PM",
+  sunday: "Sunday: Closed",
+  schema: ["Mo-Fr 09:00-18:00", "Sa 09:00-14:00"],
+},
 
   social: {
     linkedin: "https://linkedin.com/company/vettriswargroups",
