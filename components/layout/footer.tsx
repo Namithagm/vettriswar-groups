@@ -10,7 +10,7 @@ const SERVICES = [
   "AI Solutions",
   "Business Consulting",
   "Digital Marketing",
-  "Automation",
+  "WordPress Development",
   "Cloud Services",
 ];
 

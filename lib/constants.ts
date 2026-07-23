@@ -15,17 +15,17 @@ export const SITE = {
   url: "https://www.vettriswargroups.com",
 
   // Primary contact email (used as the general/default address across the site).
-  email: "info@vettriswargroups.com",
+  email: "admin@vettrigroups.com",
   emails: {
-    general: "info@vettriswargroups.com",
-    sales: "sales@vettriswargroups.com",
-    support: "support@vettriswargroups.com",
-    careers: "careers@vettriswargroups.com",
+    general: "admin@vettrigroups.com",
+    sales: "admin@vettrigroups.com",
+    support: "admin@vettrigroups.com",
+    careers: "admin@vettrigroups.com",
   },
 
   // Primary phone (used for click-to-call links across the site).
-  phone: "+91 98765 43210",
-  phones: ["+91 98765 43210", "+91 91234 56789"],
+  phone: "+91 93445 33126",
+  phones: ["+91 93445 33126", "+91 93445 33126"],
 
   address: {
     line1: "2nd Floor, No. 48, Tamil Sangam Road",
@@ -40,8 +40,7 @@ export const SITE = {
   },
 
   hours: {
-    weekdays: "Monday – Friday: 9:00 AM – 6:00 PM",
-    saturday: "Saturday: 9:00 AM – 2:00 PM",
+    weekdays: "Monday – Saturday: 9:00 AM – 6:00 PM",
     sunday: "Sunday: Closed",
     // schema.org openingHours format, used in the Organization JSON-LD.
     schema: ["Mo-Fr 09:00-18:00", "Sa 09:00-14:00"],
@@ -70,7 +69,7 @@ export const NAV_LINKS = [
 
 // Demo founder profile — replace with the real founder's details.
 export const FOUNDER = {
-  name: "Maneswar Abishek",
+  name: "Vettri",
   title: "Founder & CEO",
   bio: "Maneswar leads Vettriswar Groups of Company's engineering and consulting practice, working closely with clients across manufacturing, healthcare, and finance to turn ambitious technology roadmaps into shipped, dependable systems.",
   linkedin: "https://www.linkedin.com/in/maneswar-abishek-5b38b12a0/",

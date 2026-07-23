@@ -9,7 +9,7 @@ const FAQS = [
   {
     question: "What services does Vettriswar Groups of Company offer?",
     answer:
-      "We provide software development, AI solutions, business consulting, digital marketing, automation, recruitment, enterprise solutions, and cloud services. Each engagement is scoped to the client's specific need.",
+      "We provide software development, AI solutions, business consulting, digital marketing, WordPress Development, recruitment, enterprise solutions, and cloud services. Each engagement is scoped to the client's specific need.",
   },
   {
     question: "How is pricing structured?",

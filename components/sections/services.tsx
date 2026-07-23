@@ -40,7 +40,7 @@ const SERVICES = [
   },
   {
     icon: Workflow,
-    title: "Automation",
+    title: "WordPress Development",
     description:
       "End-to-end workflow automation that removes manual bottlenecks and keeps teams focused on higher-value work.",
   },

@@ -8,7 +8,7 @@ import Reveal from "@/components/ui/reveal";
 type Project = {
   id: string;
   title: string;
-  category: "Web" | "AI" | "Enterprise" | "Automation";
+  category: "Web" | "AI" | "Enterprise" | "WordPress Development";
   industry: string;
   client: string;
   year: string;
@@ -104,7 +104,7 @@ const PROJECTS: Project[] = [
   {
     id: "p6",
     title: "Business Intelligence Dashboard",
-    category: "Automation",
+    category: "WordPress Development",
     industry: "Logistics",
     client: "Kelso Logistics (Demo Client)",
     year: "2023",
@@ -119,7 +119,7 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const CATEGORIES = ["All", "Web", "AI", "Enterprise", "Automation"] as const;
+const CATEGORIES = ["All", "Web", "AI", "Enterprise", "WordPress Development"] as const;
 
 export default function Portfolio() {
   const [filter, setFilter] = useState<(typeof CATEGORIES)[number]>("All");
