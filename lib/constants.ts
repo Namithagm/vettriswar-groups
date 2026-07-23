@@ -71,7 +71,7 @@ export const NAV_LINKS = [
 export const FOUNDER = {
   name: "Vettri",
   title: "Founder & CEO",
-  bio: "Maneswar leads Vettriswar Groups of Company's engineering and consulting practice, working closely with clients across manufacturing, healthcare, and finance to turn ambitious technology roadmaps into shipped, dependable systems.",
+  bio: "Vettri leads Vettriswar Groups of Company's engineering and consulting practice, working closely with clients across manufacturing, healthcare, and finance to turn ambitious technology roadmaps into shipped, dependable systems.",
   linkedin: "https://www.linkedin.com/in/maneswar-abishek-5b38b12a0/",
   quote: "\u201cWe build with purpose, and we deliver with pride.\u201d",
 };
