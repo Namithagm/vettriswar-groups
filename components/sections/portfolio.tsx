@@ -190,8 +190,8 @@ export default function Portfolio() {
                   <span className="absolute left-3 top-3 rounded-full border border-gold/40 bg-ink/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-gold">
                     Demo Project
                   </span>
-                  <span className="font-display text-2xl text-gold/30 transition-transform duration-700 group-hover:scale-110">
-                    {project.category}
+                  <span className="font-display text-2xl text-gold/70 transition-transform duration-700 group-hover:scale-110">
+                  {project.category}
                   </span>
                 </div>
 
