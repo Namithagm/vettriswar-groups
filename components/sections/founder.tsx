@@ -23,15 +23,13 @@ export default function FounderSection() {
             <div className="relative mx-auto max-w-sm">
               <div className="absolute -inset-3 rounded-3xl bg-gold-gradient opacity-20 blur-2xl" />
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-gold/20 bg-ink-raised">
-                {/* Demo initials avatar — swap for an approved founder portrait when available */}
-                <div className="flex h-full w-full items-center justify-center">
-                  <span className="font-display text-6xl text-gold/25">
-                    {FOUNDER.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </span>
-                </div>
+                <Image
+                  src="/founder.jpg"
+                  alt={FOUNDER.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
           </Reveal>
@@ -53,7 +51,7 @@ export default function FounderSection() {
                 {FOUNDER.bio}
               </p>
 
-              <a
+              
                 href={FOUNDER.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
