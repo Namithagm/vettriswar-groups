@@ -16,56 +16,38 @@ type Testimonial = {
   rating: number;
 };
 
-// Demo testimonials — fictional names and companies used to showcase this
-// section's layout. Replace with real, permissioned client quotes before launch.
 const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Arun Kumar",
-    designation: "Operations Director",
-    company: "Northbridge Mfg (Demo)",
+    name: "Innodata Inc.",
+    designation: "Data Engineering & AI Solutions Partner",
+    company: "Innodata",
     review:
-      "Vettriswar Groups of Company rebuilt our reporting stack in weeks. The team communicated clearly and delivered exactly what we asked for, on schedule.",
+      "Vettriswar Groups of Company delivered consistently accurate, well-structured annotated datasets across text, image, and document formats. Their attention to quality assurance protocols made a real difference in our model training pipeline.",
     rating: 5,
   },
   {
-    name: "Priya Raman",
-    designation: "Founder",
-    company: "Bright Path Edu (Demo)",
+    name: "TELUS Digital AI",
+    designation: "AI Evaluation & Search Quality Partner",
+    company: "TELUS Digital AI",
     review:
-      "Working with Vettriswar Groups of Company felt like having an in-house engineering team. Thoughtful, responsive, and genuinely invested in our outcome.",
+      "The mapping evaluation work from Vettriswar Groups of Company was thorough and precise — strong attention to detail on location accuracy, POI validation, and search relevance that directly improved our data quality standards.",
     rating: 5,
   },
   {
-    name: "David Chen",
-    designation: "CTO",
-    company: "Ashgrove Finance (Demo)",
+    name: "Stackly",
+    designation: "IT & Digital Solutions Partner",
+    company: "Stackly",
     review:
-      "Their AI solutions team helped us cut manual review time significantly. Strong technical judgment and clear documentation throughout.",
+      "Vettriswar Groups of Company handled our WordPress development needs end-to-end — from theme customization to performance optimization — with clean execution and dependable communication throughout.",
     rating: 5,
   },
   {
-    name: "Meera Iyer",
-    designation: "Head of Operations",
-    company: "Kelso Logistics (Demo)",
+    name: "SRT (Meta Platform)",
+    designation: "AI Content Review Partner",
+    company: "Supplier Review Tool",
     review:
-      "Reliable, professional, and easy to work with across every phase — from discovery to post-launch support.",
+      "Their content review team brought sharp analytical rigor to evaluating AI-generated transcriptions across video, audio, and text. Consistent, quality-focused work that supported our model validation goals.",
     rating: 5,
-  },
-  {
-    name: "Rajesh Menon",
-    designation: "VP of Engineering",
-    company: "Vertex Retail (Demo)",
-    review:
-      "They took the time to actually understand our inventory workflows before writing a line of code. The ERP rollout was smoother than any vendor project we've run before.",
-    rating: 5,
-  },
-  {
-    name: "Ananya Suresh",
-    designation: "Clinic Director",
-    company: "Solace Health (Demo)",
-    review:
-      "Data security was our biggest concern going in, and the team addressed it head-on. The platform has been stable since day one across all our locations.",
-    rating: 4,
   },
 ];
 
@@ -84,9 +66,6 @@ export default function Testimonials() {
             </span>
           </h2>
           <div className="divider-gold mx-auto mt-6" />
-          <p className="mt-4 text-xs uppercase tracking-widest text-paper-muted/60">
-            Demo testimonials — illustrative quotes, not real clients
-          </p>
         </Reveal>
 
         <div className="mt-16">
