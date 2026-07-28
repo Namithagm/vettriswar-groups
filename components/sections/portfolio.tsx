@@ -8,7 +8,7 @@ import Reveal from "@/components/ui/reveal";
 type Project = {
   id: string;
   title: string;
-  category: "Web" | "AI" | "Enterprise" | "WordPress Development";
+  category: "Web" | "AI" | "Enterprise" | "Automation";
   industry: string;
   client: string;
   year: string;
@@ -17,9 +17,6 @@ type Project = {
   achievements: string[];
 };
 
-// Demo portfolio — six illustrative case studies used to showcase the
-// template's layout and filtering. Client names are fictional; replace with
-// real, permissioned case studies before launch.
 const PROJECTS: Project[] = [
   {
     id: "p1",
@@ -104,7 +101,7 @@ const PROJECTS: Project[] = [
   {
     id: "p6",
     title: "Business Intelligence Dashboard",
-    category: "WordPress Development",
+    category: "Automation",
     industry: "Logistics",
     client: "Kelso Logistics (Demo Client)",
     year: "2023",
@@ -117,9 +114,73 @@ const PROJECTS: Project[] = [
       "Gave finance and ops a shared source of truth",
     ],
   },
+  {
+    id: "p7",
+    title: "AI Data Annotation & Labeling",
+    category: "AI",
+    industry: "AI / Machine Learning",
+    client: "Innodata Inc.",
+    year: "2026",
+    description:
+      "Large-scale annotation and labeling of text, image, audio, video, and document datasets to support training and validation of AI and Generative AI models.",
+    tech: ["NLP", "Computer Vision", "Data QA", "HITL Workflows"],
+    achievements: [
+      "Delivered high-quality labeled datasets across multiple content formats",
+      "Maintained consistency through standardized QA protocols",
+      "Supported model training for NLP, vision, and Generative AI use cases",
+    ],
+  },
+  {
+    id: "p8",
+    title: "Mapping & Search Evaluation",
+    category: "AI",
+    industry: "AI / Geospatial Data",
+    client: "TELUS Digital AI",
+    year: "2026",
+    description:
+      "Quality evaluation of map search results, location accuracy, routing relevance, and Points of Interest data to improve AI-powered navigation systems.",
+    tech: ["Search Evaluation", "Geospatial QA", "Data Validation"],
+    achievements: [
+      "Rated map search relevance against standardized quality guidelines",
+      "Validated business listings, addresses, and POI accuracy",
+      "Contributed evaluation data used to improve mapping AI models",
+    ],
+  },
+  {
+    id: "p9",
+    title: "Custom WordPress Website Development",
+    category: "Web",
+    industry: "Information Technology",
+    client: "Stackly",
+    year: "2026",
+    description:
+      "End-to-end WordPress website development including theme customization, plugin configuration, performance optimization, and ongoing maintenance.",
+    tech: ["WordPress", "PHP", "HTML/CSS", "JavaScript"],
+    achievements: [
+      "Delivered responsive, cross-browser compatible websites",
+      "Optimized site speed and security following best practices",
+      "Provided ongoing technical support and maintenance",
+    ],
+  },
+  {
+    id: "p10",
+    title: "AI Content Review & Transcription Rating",
+    category: "AI",
+    industry: "AI / Content Quality",
+    client: "SRT (Meta Platform)",
+    year: "2026",
+    description:
+      "Review and quality rating of AI-generated transcriptions and content across video, audio, text, and document formats to support machine learning model validation.",
+    tech: ["NLP", "Transcription QA", "Content Moderation"],
+    achievements: [
+      "Evaluated AI-generated transcriptions for accuracy and consistency",
+      "Identified and flagged transcription and formatting errors",
+      "Supported model validation for speech recognition and language systems",
+    ],
+  },
 ];
 
-const CATEGORIES = ["All", "Web", "AI", "Enterprise", "WordPress Development"] as const;
+const CATEGORIES = ["All", "Web", "AI", "Enterprise", "Automation"] as const;
 
 export default function Portfolio() {
   const [filter, setFilter] = useState<(typeof CATEGORIES)[number]>("All");
@@ -146,8 +207,8 @@ export default function Portfolio() {
           </h2>
           <div className="divider-gold mx-auto mt-6" />
           <p className="mt-6 text-balance font-serif text-lg italic text-paper-muted">
-            Demo case studies illustrating the range of engagements we take on
-            across industries and technologies.
+            A look at the range of engagements we take on across industries
+            and technologies.
           </p>
         </Reveal>
 
@@ -187,11 +248,8 @@ export default function Portfolio() {
                     aria-hidden="true"
                     className="absolute inset-0 bg-gold-gradient opacity-0 transition-opacity duration-500 group-hover:opacity-10"
                   />
-                  <span className="absolute left-3 top-3 rounded-full border border-gold/40 bg-ink/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-gold">
-                    Demo Project
-                  </span>
                   <span className="font-display text-2xl text-gold/70 transition-transform duration-700 group-hover:scale-110">
-                  {project.category}
+                    {project.category}
                   </span>
                 </div>
 
@@ -256,9 +314,6 @@ export default function Portfolio() {
                 <X className="h-5 w-5" />
               </button>
 
-              <span className="inline-block rounded-full border border-gold/40 bg-gold/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-gold">
-                Demo Project
-              </span>
               <h3 className="mt-4 font-display text-2xl text-paper">
                 {active.title}
               </h3>
