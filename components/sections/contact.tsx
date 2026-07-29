@@ -99,12 +99,6 @@ export default function Contact() {
                   >
                     {SITE.emails.general}
                   </a>
-                  <a
-                    href={`mailto:${SITE.emails.sales}`}
-                    className="mt-1 block text-sm text-paper hover:text-gold"
-                  >
-                    {SITE.emails.sales}
-                  </a>
                 </div>
               </div>
 

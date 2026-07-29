@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#grad)" />
+  <rect x="140" y="180" width="920" height="320" rx="32" fill="#10b981" opacity="0.16" />
+  <path d="M220 560 C380 470 520 700 720 560 S980 520 1040 620" fill="none" stroke="#f8fafc" stroke-width="18" stroke-linecap="round" opacity="0.82" />
+  <text x="50%" y="44%" text-anchor="middle" fill="#f8fafc" font-family="Inter, sans-serif" font-size="64" font-weight="700">Mapping QA</text>
+  <text x="50%" y="56%" text-anchor="middle" fill="#f8fafc" font-family="Inter, sans-serif" font-size="32">Geospatial data evaluation</text>
+</svg>

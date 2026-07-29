@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, X, CheckCircle2 } from "lucide-react";
@@ -15,6 +16,7 @@ type Project = {
   description: string;
   tech: string[];
   achievements: string[];
+  imageSrc: string;
 };
 
 const PROJECTS: Project[] = [
@@ -33,6 +35,7 @@ const PROJECTS: Project[] = [
       "Maintained consistency through standardized QA protocols",
       "Supported model training for NLP, vision, and Generative AI use cases",
     ],
+    imageSrc: "/images/projects/project-p7.svg",
   },
   {
     id: "p8",
@@ -49,6 +52,7 @@ const PROJECTS: Project[] = [
       "Validated business listings, addresses, and POI accuracy",
       "Contributed evaluation data used to improve mapping AI models",
     ],
+    imageSrc: "/images/projects/project-p8.svg",
   },
   {
     id: "p9",
@@ -65,6 +69,7 @@ const PROJECTS: Project[] = [
       "Optimized site speed and security following best practices",
       "Provided ongoing technical support and maintenance",
     ],
+    imageSrc: "/images/projects/project-p9.svg",
   },
   {
     id: "p10",
@@ -81,6 +86,7 @@ const PROJECTS: Project[] = [
       "Identified and flagged transcription and formatting errors",
       "Supported model validation for speech recognition and language systems",
     ],
+    imageSrc: "/images/projects/project-p10.svg",
   },
 ];
 
@@ -147,17 +153,23 @@ export default function Portfolio() {
                 transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 className="group glass-card glass-card-hover overflow-hidden"
               >
-                <div className="relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br from-ink-raised via-ink-soft to-ink">
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-gold-gradient opacity-0 transition-opacity duration-500 group-hover:opacity-10"
-                  />
-                  <span className="font-display text-2xl text-gold/70 transition-transform duration-700 group-hover:scale-110">
-                    {project.category}
-                  </span>
+                <div className="relative h-44 overflow-hidden rounded-t-3xl bg-ink-raised">
+                <Image
+                  src={project.imageSrc}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-center opacity-95"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-ink/50"
+                />
+                <div className="absolute left-4 top-4 rounded-full border border-paper/20 bg-black/40 px-3 py-1 text-xs uppercase tracking-widest text-paper">
+                  {project.category}
                 </div>
+              </div>
 
-                <div className="p-7">
+              <div className="p-7">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="font-display text-lg text-paper">
                       {project.title}
