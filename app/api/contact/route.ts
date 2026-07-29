@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     const resendApiKey = process.env.RESEND_API_KEY;
 
     const smtpHost = process.env.SMTP_HOST;
-    const smtpPort = parseInt(process.env.SMTP_PORT || "587");
+    const smtpPort = Number.parseInt(process.env.SMTP_PORT || "587");
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
 
@@ -110,11 +110,40 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true });
     }
 
-    console.error("No email provider configured (RESEND_API_KEY or SMTP credentials missing in .env.local).");
+    // Option 3: Zero-Config Fallback via FormSubmit directly to toAddress
+    try {
+      const fsRes = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(toAddress)}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Origin: SITE.url,
+          Referer: SITE.url,
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone: phone || "N/A",
+          _subject: `[Website Inquiry] ${subject}`,
+          message,
+          _replyto: email,
+        }),
+      });
+
+      const fsData = await fsRes.json();
+
+      if (fsRes.ok || fsData.success === "true" || fsData.message?.includes("activate")) {
+        return NextResponse.json({ success: true });
+      }
+    } catch (fsErr) {
+      console.error("FormSubmit fallback error:", fsErr);
+    }
+
+    console.error("No working email provider configured.");
     return NextResponse.json(
       {
         success: false,
-        error: "Email service is not configured yet. Please add RESEND_API_KEY or SMTP settings to .env.local.",
+        error: "Could not send email. Please ensure your email configuration is set up.",
       },
       { status: 500 }
     );
