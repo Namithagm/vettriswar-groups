@@ -19,102 +19,6 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    id: "p1",
-    title: "Manufacturing KPI Dashboard",
-    category: "Enterprise",
-    industry: "Manufacturing",
-    client: "Northbridge Mfg (Demo Client)",
-    year: "2025",
-    description:
-      "Real-time production, downtime, and quality dashboard unifying data from shop-floor sensors and legacy MES systems into a single operations view.",
-    tech: ["Next.js", "PostgreSQL", "Docker", "Grafana"],
-    achievements: [
-      "Cut manual reporting time by roughly 70%",
-      "Unified 4 separate plant data sources into one dashboard",
-      "Enabled shift-level downtime alerts within seconds",
-    ],
-  },
-  {
-    id: "p2",
-    title: "AI Recruitment Platform",
-    category: "AI",
-    industry: "Human Resources",
-    client: "Bright Path Edu (Demo Client)",
-    year: "2025",
-    description:
-      "LLM-powered resume screening and candidate-matching platform that ranks applicants against role requirements and surfaces interview-ready shortlists.",
-    tech: ["LangChain", "FastAPI", "Groq AI", "PostgreSQL"],
-    achievements: [
-      "Reduced initial screening time from days to minutes",
-      "Improved shortlist-to-interview conversion rate",
-      "Processed thousands of resumes per hiring cycle",
-    ],
-  },
-  {
-    id: "p3",
-    title: "Smart ERP System",
-    category: "Enterprise",
-    industry: "Retail & Distribution",
-    client: "Vertex Retail (Demo Client)",
-    year: "2024",
-    description:
-      "Modular ERP covering inventory, procurement, and finance for a multi-warehouse distribution business, replacing a patchwork of spreadsheets.",
-    tech: ["React", "Node.js", "PostgreSQL", "REST APIs"],
-    achievements: [
-      "Consolidated 3 warehouses onto one inventory system",
-      "Cut stock discrepancy incidents significantly",
-      "Automated purchase-order generation end to end",
-    ],
-  },
-  {
-    id: "p4",
-    title: "Healthcare Management Platform",
-    category: "Enterprise",
-    industry: "Healthcare",
-    client: "Solace Health (Demo Client)",
-    year: "2024",
-    description:
-      "Secure patient intake, scheduling, and records platform for a multi-location clinic network, built with strict access controls and audit logging.",
-    tech: ["React", "FastAPI", "PostgreSQL", "Docker"],
-    achievements: [
-      "Streamlined intake across multiple clinic locations",
-      "Reduced appointment no-shows with automated reminders",
-      "Passed internal security and access-control review",
-    ],
-  },
-  {
-    id: "p5",
-    title: "Enterprise CRM Solution",
-    category: "Web",
-    industry: "Financial Services",
-    client: "Ashgrove Finance (Demo Client)",
-    year: "2023",
-    description:
-      "Custom CRM tracking the full client lifecycle — leads, onboarding, servicing, and renewals — with role-based pipelines for sales and support teams.",
-    tech: ["Next.js", "Tailwind", "PostgreSQL", "Stripe"],
-    achievements: [
-      "Centralized client data previously split across 5 tools",
-      "Shortened average deal-to-close time",
-      "Gave leadership real-time pipeline visibility",
-    ],
-  },
-  {
-    id: "p6",
-    title: "Business Intelligence Dashboard",
-    category: "Automation",
-    industry: "Logistics",
-    client: "Kelso Logistics (Demo Client)",
-    year: "2023",
-    description:
-      "n8n-driven pipeline connecting CRM, email, and finance systems into a single automated reporting layer with a live BI dashboard on top.",
-    tech: ["n8n", "REST APIs", "PostgreSQL", "Metabase"],
-    achievements: [
-      "Automated weekly reporting that took a full day manually",
-      "Connected 3 previously siloed systems",
-      "Gave finance and ops a shared source of truth",
-    ],
-  },
-  {
     id: "p7",
     title: "AI Data Annotation & Labeling",
     category: "AI",
@@ -180,7 +84,7 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const CATEGORIES = ["All", "Web", "AI", "Enterprise", "Automation"] as const;
+const CATEGORIES = ["All", "Web", "AI"] as const;
 
 export default function Portfolio() {
   const [filter, setFilter] = useState<(typeof CATEGORIES)[number]>("All");
