@@ -24,6 +24,7 @@ export default function Contact() {
   const onSubmit = async (data: ContactFormValues) => {
     setServerError(null);
     try {
+      // 1. Try server-side API route (/api/contact)
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -31,13 +32,39 @@ export default function Contact() {
       });
       const result = await res.json();
 
-      if (!res.ok || !result.success) {
-        setServerError(result.error || "Something went wrong. Please try again.");
+      if (res.ok && result.success) {
+        setSubmitted(true);
+        reset();
         return;
       }
 
-      setSubmitted(true);
-      reset();
+      // 2. Client-side Fallback: Submit directly from browser to FormSubmit
+      // (bypasses serverless cloud IP restrictions on Vercel)
+      const fsRes = await fetch("https://formsubmit.co/ajax/admin@vettrigroups.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || "N/A",
+          _subject: `[Website Inquiry] ${data.subject}`,
+          message: data.message,
+          _replyto: data.email,
+        }),
+      });
+
+      const fsData = await fsRes.json().catch(() => null);
+
+      if (fsRes.ok || fsData?.success === "true" || fsData?.message) {
+        setSubmitted(true);
+        reset();
+        return;
+      }
+
+      setServerError(result.error || "Could not send your message. Please try again.");
     } catch {
       setServerError("Network error — please check your connection and try again.");
     }

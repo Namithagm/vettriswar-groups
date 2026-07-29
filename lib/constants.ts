@@ -15,17 +15,17 @@ export const SITE = {
   url: "https://www.vettriswargroups.com",
 
   // Primary contact email (used as the general/default address across the site).
-  email: "admin@vettrigroups.com",
+  email: "info@vettriswargroups.com",
   emails: {
-    general: "admin@vettrigroups.com",
-    sales: "admin@vettrigroups.com",
-    support: "admin@vettrigroups.com",
-    careers: "admin@vettrigroups.com",
+    general: "info@vettriswargroups.com",
+    sales: "info@vettriswargroups.com",
+    support: "info@vettriswargroups.com",
+    careers: "info@vettriswargroups.com",
   },
 
   // Primary phone (used for click-to-call links across the site).
   phone: "+91 93445 33126",
-  phones: ["+91 93445 33126", "+91 93445 33126"],
+  phones: ["+91 93445 33126"],
 
   address: {
     line1: "2nd Floor, No. 48, Tamil Sangam Road",
