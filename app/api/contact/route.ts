@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { contactFormSchema } from "@/lib/schemas";
 import { SITE } from "@/lib/constants";
 
@@ -40,51 +41,83 @@ export async function POST(request: Request) {
 
     const { name, email, phone, subject, message } = parsed.data;
 
-    const apiKey = process.env.RESEND_API_KEY;
     const toAddress = process.env.CONTACT_TO_EMAIL || SITE.emails.general;
-    const fromAddress = process.env.CONTACT_FROM_EMAIL || "Vettriswar Groups of Company <onboarding@resend.dev>";
+    const resendApiKey = process.env.RESEND_API_KEY;
 
-    if (!apiKey) {
-      // Fail loudly in server logs so misconfiguration is obvious, but keep
-      // the client message generic.
-      console.error("RESEND_API_KEY is not set — contact form cannot send email.");
-      return NextResponse.json(
-        { success: false, error: "Email service is not configured yet." },
-        { status: 500 }
-      );
+    const smtpHost = process.env.SMTP_HOST;
+    const smtpPort = parseInt(process.env.SMTP_PORT || "587");
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+
+    const emailText = [
+      `New contact form submission from ${SITE.name} website`,
+      "",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : null,
+      `Subject: ${subject}`,
+      "",
+      "Message:",
+      message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    // Option 1: Use Resend if RESEND_API_KEY is configured
+    if (resendApiKey) {
+      const fromAddress = process.env.CONTACT_FROM_EMAIL || "Vettriswar Groups <onboarding@resend.dev>";
+      const resend = new Resend(resendApiKey);
+
+      const { error } = await resend.emails.send({
+        from: fromAddress,
+        to: toAddress,
+        replyTo: email,
+        subject: `[Website Inquiry] ${subject}`,
+        text: emailText,
+      });
+
+      if (error) {
+        console.error("Resend error:", error);
+        return NextResponse.json(
+          { success: false, error: "Could not send your message via Resend. Please verify your Resend key/domain." },
+          { status: 502 }
+        );
+      }
+
+      return NextResponse.json({ success: true });
     }
 
-    const resend = new Resend(apiKey);
+    // Option 2: Use SMTP (Nodemailer - Gmail / Custom SMTP) if credentials are provided
+    if (smtpHost && smtpUser && smtpPass) {
+      const transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort,
+        secure: smtpPort === 465,
+        auth: {
+          user: smtpUser,
+          pass: smtpPass,
+        },
+      });
 
-    const { error } = await resend.emails.send({
-      from: fromAddress,
-      to: toAddress,
-      replyTo: email,
-      subject: `[Website] ${subject}`,
-      text: [
-        `New contact form submission from ${SITE.name} website`,
-        "",
-        `Name: ${name}`,
-        `Email: ${email}`,
-        phone ? `Phone: ${phone}` : null,
-        `Subject: ${subject}`,
-        "",
-        "Message:",
-        message,
-      ]
-        .filter(Boolean)
-        .join("\n"),
-    });
+      await transporter.sendMail({
+        from: process.env.CONTACT_FROM_EMAIL || `"${name}" <${smtpUser}>`,
+        to: toAddress,
+        replyTo: email,
+        subject: `[Website Inquiry] ${subject}`,
+        text: emailText,
+      });
 
-    if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json(
-        { success: false, error: "Could not send your message. Please try again shortly." },
-        { status: 502 }
-      );
+      return NextResponse.json({ success: true });
     }
 
-    return NextResponse.json({ success: true });
+    console.error("No email provider configured (RESEND_API_KEY or SMTP credentials missing in .env.local).");
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Email service is not configured yet. Please add RESEND_API_KEY or SMTP settings to .env.local.",
+      },
+      { status: 500 }
+    );
   } catch (err) {
     console.error("Contact API error:", err);
     return NextResponse.json(

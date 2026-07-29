@@ -5,7 +5,6 @@ import WhyChooseUs from "@/components/sections/why-choose-us";
 import Industries from "@/components/sections/industries";
 import Portfolio from "@/components/sections/portfolio";
 import ClientLogos from "@/components/sections/client-logos";
-import FounderSection from "@/components/sections/founder";
 import Testimonials from "@/components/sections/testimonials";
 import Careers from "@/components/sections/careers";
 import Blog from "@/components/sections/blog";
@@ -22,7 +21,6 @@ export default function Home() {
       <Industries />
       <Portfolio />
       <ClientLogos />
-      <FounderSection />
       <Testimonials />
       <Careers />
       <Blog />
